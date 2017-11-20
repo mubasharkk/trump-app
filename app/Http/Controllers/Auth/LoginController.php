@@ -41,9 +41,17 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function redirectToProvider()
+    public function redirectToProvider($authType)
     {
-        return Socialite::driver('github')->redirect();
+        switch ($authType) {
+            case 'github':
+                return Socialite::driver('github')->redirect();
+                break;
+            case 'twitter':
+                return Socialite::driver('twitter')->redirect();
+                break;
+        }
+
     }
 
     public function handleProviderCallback($authType, SocialUsers $service)
@@ -52,11 +60,20 @@ class LoginController extends Controller
             case 'github':
                 $account = Socialite::driver('github')->user();
                 $user = $service->createUser($account, 'github');
+                break;
 
-                \Auth::login(User::find($user->id()));
+            case 'twitter':
+                $account = Socialite::driver('twitter')->user();
+                $account->email = "{$account->nickname}@twitter-dummy.com";
+                $user = $service->createUser($account, 'twitter');
                 break;
         }
 
+        if(!$user) {
+            return redirect('/login');
+        }
+
+        \Auth::login(User::find($user->id()));
         return redirect('/home');
     }
 }

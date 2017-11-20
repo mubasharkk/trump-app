@@ -39,9 +39,9 @@ return [
         'client_secret' => env('GITHUB_CLIENT_SECRET', '49466342e9d0a89a924b4f3670411bbb1438cc6d'), // Your GitHub Client Secret
         'redirect' => 'http://dashboard.empatica.dev/login/github/callback',
     ],
-
     'twitter' => [
-        'consumer_key' => 'U9XTGDqrDmGFjmywUenxKl0I1',
-        'consumer_secret' => 'XdfeSIeUl60D5SL4KDNeGY6b41kadVxWLUsK8LmFpo9MZD2vrf',
+        'client_id' => env('TWITTER_KEY', 'U9XTGDqrDmGFjmywUenxKl0I1'),
+        'client_secret' => env('TWITTER_SECRET', 'XdfeSIeUl60D5SL4KDNeGY6b41kadVxWLUsK8LmFpo9MZD2vrf'),
+        'redirect' => env('TWITTER_REDIRECT_URI', 'http://dashboard.empatica.dev/login/twitter/callback'),
     ]
 ];

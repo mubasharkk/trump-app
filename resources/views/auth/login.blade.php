@@ -64,13 +64,22 @@
                 </div>
                 <div class="panel-footer">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <a href="{{route('login_social', ['authType' => 'github'])}}" class="btn btn-block btn-social btn-github">
                                 <span class="fa fa-fw fa-github"></span>  Sign in with GitHub
                             </a>
+                            <a href="{{route('login_social', ['authType' => 'facebook'])}}" class="btn btn-block btn-social btn-facebook">
+                                <span class="fa fa-fw fa-facebook"></span>  Sign in with Facebook
+                            </a>
                         </div>
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4"></div>
+                        <div class="col-md-6">
+                            <a href="{{route('login_social', ['authType' => 'twitter'])}}" class="btn btn-block btn-social btn-twitter">
+                                <span class="fa fa-fw fa-twitter"></span>  Sign in with Twitter
+                            </a>
+                            <a href="{{route('login_social', ['authType' => 'google'])}}" class="btn btn-block btn-social btn-google">
+                                <span class="fa fa-fw fa-google"></span>  Sign in with Google
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
