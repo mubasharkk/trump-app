@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import moment from 'moment';
+import axios from 'axios';
 
 class TimeSlot extends Component {
 
@@ -10,13 +11,18 @@ class TimeSlot extends Component {
             feeds: [],
             dateTimeSlot: moment().format('DD.MM.YYYY H:00'),
             timeSlots: []
-        }
-
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentWillMount() {
-
+        axios.get('/api/twitter/time-slots').then(response => {
+            if (response.data.status) {
+                this.setState({
+                    timeSlots: response.data.data
+                });
+            }
+        });
     }
 
     componentDidMount() {

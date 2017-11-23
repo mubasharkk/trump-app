@@ -55,7 +55,25 @@ final class TwitterController extends Controller
 
     public function listTimeSlots()
     {
-        $user = User::find(Auth::user());
-        dd($user->tweetTimeSlots);
+        try {
+            $user = User::findOrFail(\Auth::user())->first();
+            $data = array_map(function ($item) {
+                return [
+                    'id' => $item['id'],
+                    'time_slot' => $item['time_slot'],
+                    'created_at' => strtotime($item['created_at'])
+                ];
+            }, $user->tweetTimeSlots->toArray());
+
+            return response()->json([
+                'status' => true,
+                'data' => $data
+            ]);
+        } catch (\Exception $exception) {
+            return response()->json([
+                'status' => false,
+                'message' => $exception->getMessage()
+            ]);
+        }
     }
 }
