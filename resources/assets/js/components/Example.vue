@@ -1,4 +1,4 @@
-template>
+<template>
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -6,7 +6,7 @@ template>
                     <div class="panel-heading">Example Component</div>
 
                     <div class="panel-body">
-                        I'm an example component!
+                        I'm an example component! xxx
                     </div>
                 </div>
             </div>

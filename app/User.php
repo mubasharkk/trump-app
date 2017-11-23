@@ -31,4 +31,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\UserSocialite', 'email', 'email');
     }
+
+    public function tweetTimeSlots(){
+        return $this->hasMany('App\TwitterTimeSlot');
+    }
 }

@@ -1,3 +1,12 @@
+/**
+ * jQuery + jQuery UI
+ */
+
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
+import 'jquery-ui/ui/widgets/datepicker.js';
+import 'jquery-datetimepicker/build/jquery.datetimepicker.full.min'
 
 /**
  * First we will load all of this project's JavaScript dependencies which

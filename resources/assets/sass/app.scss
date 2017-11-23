@@ -5,7 +5,12 @@
 // Variables
 @import "variables";
 
+@import "theme";
+
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 @import "bootstrap-social";
+
+@import '~jquery-ui/themes/base/all.css';
+@import '~jquery-datetimepicker/jquery.datetimepicker.css';
